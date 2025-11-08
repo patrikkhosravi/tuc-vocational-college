@@ -1,0 +1,111 @@
+# Nätverksteknik (Network Technology)
+
+**Course Code**: Nätverksteknik  
+**Credits**: 25 YH-credits  
+**Institution**: TUC Yrkeshögskola  
+**Period**: August - September 2024 (Term 1)  
+**Focus**: Network configuration, security, and practical implementation
+
+## Course Overview
+
+Comprehensive network technology module covering fundamental and advanced aspects of network configuration, security, and infrastructure design. The course emphasizes hands-on practice with routers, switches, VLANs, access lists, and wireless networks, alongside security hardening in both Linux and Windows environments. Students develop competencies to plan, deploy, and maintain secure enterprise networks.
+
+## Course Topics Covered
+
+### Network Fundamentals
+- **Network Models**: OSI model, TCP/IP protocol suite
+- **IP Addressing & Subnetting**: IPv4 and IPv6 addressing schemes, subnet mask calculations, CIDR notation
+- **Network Components**: Routers, switches, access points, network topology design
+
+### Device Configuration & Management
+- **Router & Switch Configuration**: CLI (Command Line Interface) commands, password management, basic security measures
+- **Network Design**: Infrastructure planning, scalability considerations, fault tolerance
+- **VLAN Implementation**: Virtual LAN segmentation, inter-VLAN routing, trunk configuration
+- **Routing Protocols**: Static and dynamic routing, routing table management
+
+### Security Implementation
+- **Access Control Lists (ACLs)**: Traffic filtering, security policy enforcement, rule prioritization
+- **Linux & Windows Security**: OS-level hardening, firewall configuration, security best practices
+- **Wireless Network Security**: Access point installation and hardening, WPA2/WPA3 configuration, access control mechanisms
+
+### Troubleshooting & Analysis
+- **Network Troubleshooting**: Systematic problem identification and resolution methodologies
+- **Protocol Analysis**: Wireshark packet capture and analysis, traffic pattern identification
+- **Security Gap Identification**: Vulnerability assessment, remediation strategies
+
+### Wireless Networks
+- **Radio Planning**: Coverage optimization, interference management, channel selection
+- **Access Point Configuration**: SSID management, authentication methods, encryption standards
+- **Wireless Security**: Securing wireless infrastructure, rogue AP detection
+
+## Learning Outcomes by Assessment Type
+
+**Individual On-Site Lab (Learning Outcomes 1-4)**: Practical configuration skills in Cisco Packet Tracer  
+**Group Lab (Learning Outcomes 5-12)**: Collaborative network design and implementation  
+**Individual Written/Oral Assignment (Learning Outcome 13)**: Comprehensive network planning and security analysis (IG/G/VG grading)
+
+## Key Lab Activities
+
+### Cisco Packet Tracer Exercises
+- Building simple networks with IP addressing
+- Router and switch configuration with security measures
+- VLAN configuration in switched networks
+- Troubleshooting non-functional network environments
+- Email server configuration and testing
+- Access Control List implementation
+
+### Security-Focused Labs
+- Identifying and remediating network security weaknesses
+- Configuring access lists with subnet integration
+- Wireless network planning and hardening
+- Protocol analysis with Wireshark
+
+## Assignments in This Folder
+
+### [Assignments to be added as completed]
+
+*Individual and group assignments will be documented here as they are completed throughout the course.*
+
+## Skills Developed
+
+- **Technical**: Router/switch CLI mastery, VLAN configuration, ACL implementation, wireless network deployment
+- **Security**: Network hardening, access control, traffic filtering, vulnerability identification
+- **Analysis**: Packet capture analysis, protocol troubleshooting, traffic pattern recognition
+- **Design**: Network topology planning, scalability design, security architecture
+- **Troubleshooting**: Systematic problem-solving, diagnostic tool usage, root cause analysis
+
+## Tools & Technologies
+
+**Simulation**: Cisco Packet Tracer  
+**Analysis**: Wireshark (protocol analyzer)  
+**Platforms**: Linux (network security), Windows (network security)  
+**Protocols**: TCP/IP, IPv4/IPv6, DNS, DHCP, routing protocols  
+**Hardware Concepts**: Routers, switches (Layer 2/3), wireless access points
+
+## Assessment Structure
+
+**Individual Lab (On-Site)**: Hands-on Packet Tracer configuration exam  
+**Group Lab**: IG/G - Collaborative network implementation project  
+**Individual Assignment**: IG/G/VG - Written report + oral presentation on network planning and security
+
+## Connection to IT Security Role
+
+This course establishes foundational network competencies essential for IT security specialists:
+- Understanding network architecture to identify attack surfaces
+- Implementing security controls at network layer (ACLs, VLANs, segmentation)
+- Analyzing network traffic for security monitoring and incident response
+- Designing secure network architectures following defense-in-depth principles
+- Troubleshooting connectivity issues that impact security tool effectiveness
+
+## Competencies for Career Goals
+
+Directly supports roles requiring network security expertise:
+- **Security Architect**: Network segmentation design, security zone implementation
+- **Security Operations**: Traffic analysis, incident response, security monitoring
+- **GRC Roles**: Network security policy development, compliance verification (NIS2 network requirements)
+- **Security Consultant**: Network security assessments, architecture reviews
+
+---
+
+*Part of TUC Yrkeshögskola's IT-säkerhetsspecialist program (2024-2026). This course provides the network foundation necessary for advanced security architecture and defensive security implementations.*
+```
