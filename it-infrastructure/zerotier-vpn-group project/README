@@ -1,0 +1,159 @@
+# ZeroTier VPN Network Environment - Group Project
+
+**Course**: IT-infrastruktur  
+**Credits**: 25 YH-credits  
+**Institution**: TUC Yrkeshögskola  
+**Completed**: October 2024  
+**Team**: Black Virus (5 members)  
+**Project Type**: Group assignment
+
+## Project Overview
+
+Built a secure, multi-tier virtual network environment using **Debian 13**, **ZeroTier VPN**, and industry-standard security controls. The project demonstrates practical implementation of network segmentation, firewall configuration, reverse proxy setup, and automated backup systems in a virtualized infrastructure.
+
+## Network Architecture
+
+**Three-tier architecture** with defense-in-depth security:
+
+- **Firewall Server**: UFW-based traffic filtering and NAT routing for VPN clients
+- **WordPress Server**: Web application (Apache/NGINX) with MariaDB database
+- **Backup Server**: Automated backup reception via SSH with cron-scheduled transfers
+
+**VPN Network**: ZeroTier virtual network (10.144.0.0/16) enabling encrypted communication between geographically distributed VMs
+
+## My Individual Contributions
+
+As documented in my individual submission:
+
+### Firewall VM Configuration
+- Installed and configured Debian 13-based firewall VM in VirtualBox
+- Enabled permanent IP-forwarding for inter-VM routing
+- Configured UFW rules for ports 22 (SSH), 80 (HTTP), 443 (HTTPS)
+- Implemented NAT rules (PREROUTING DNAT, POSTROUTING SNAT, MASQUERADE)
+- Verified packet flow using tcpdump
+- Documented all configuration steps
+
+### Backup VM Setup & Automation
+- Installed MariaDB and SSH server on backup VM
+- Configured SSH key-based authentication between WordPress and backup VMs
+- Co-developed automated backup script (with Maya)
+- Configured UFW to restrict SSH access to WordPress VM IP only
+- Tested and verified backup file transfers to `/backups/`
+
+### Troubleshooting & Support
+- Continuous network debugging using ping, curl, tcpdump, iptables
+- Documented firewall and backup VM configurations comprehensively
+
+## Technical Implementation Highlights
+
+### Platform Selection: Debian 13
+- **Stability**: Long-term support and reliable server platform
+- **Security**: Minimal attack surface, strong package security
+- **Resource Efficiency**: Low overhead for virtualized environments
+- **Open Source**: Full control without licensing costs
+
+### VPN Solution: ZeroTier
+**Why ZeroTier over Tailscale/Azure?**
+- Full local control without external cloud dependencies
+- Simpler installation and configuration
+- Ideal for lab/classroom environments
+- No additional costs or licensing
+
+**Implementation**:
+```bash
+curl -s https://install.zerotier.com | sudo bash
+zerotier-cli join 68BEA79ACF8CB3B0
+```
+
+### Security Controls Implemented
+
+**NGINX Reverse Proxy**:
+- Hides internal IP addresses
+- Rate limiting: 5 requests/second with burst capacity of 10
+- Tested with `siege` tool, verified HTTP error codes (404, 429, 502, 503)
+- Configuration: `/etc/nginx/sites-available/default`
+
+**UFW Firewall**:
+- IP forwarding enabled in `/etc/sysctl.conf`
+- Custom NAT rules in `/etc/ufw/before.rules` (PREROUTING, POSTROUTING)
+- Network segmentation: Database server isolated from direct internet access
+- Least privilege principle applied to all traffic rules
+
+**WordPress Security Hardening**:
+- Removed default test users and databases
+- Deny all incoming ports except strictly via 80/443 from UFW Firewall
+- Fail2ban configured for SSH brute-force protection
+- Local firewall on web server
+
+**Automated Backup System**:
+- Bash script creating timestamped backup directories
+- MySQL dump + WordPress files packaged together
+- SSH key-based secure transfer to backup server
+- Local cleanup post-transfer
+- Cron automation: Every 6 hours
+- Implements 3-2-1 backup strategy principles
+
+## Skills Demonstrated
+
+- **Virtualization**: Multi-VM environment management, resource allocation
+- **Network Security**: VPN configuration, network segmentation, firewall rules (Nätverkssegmentering, Brandvägg)
+- **System Administration**: Linux server management, service configuration, user/permission management
+- **Security Architecture**: Defense in depth (Djupförsvar), least privilege (Minsta behörighet), DMZ concepts
+- **Automation**: Bash scripting, cron scheduling, SSH key management
+- **Web Infrastructure**: NGINX reverse proxy, Apache, MariaDB, WordPress deployment
+- **Team Collaboration**: Agile methodology, daily standups, distributed troubleshooting
+
+## Architecture Benefits
+
+**Why three separate VMs instead of one?**
+
+1. **Security**: Compromised web server doesn't automatically expose database (defense in depth)
+2. **Scalability**: Multiple web servers can connect to single database; backup server can serve multiple sources
+3. **Maintainability**: Independent server updates without full environment downtime
+4. **Backup Simplicity**: Database-focused backups with separate web server restoration
+5. **Compliance**: Mirrors real-world production architectures for regulatory requirements
+
+## Tools & Technologies
+
+**Virtualization**: VirtualBox  
+**Operating System**: Debian 13.1  
+**VPN**: ZeroTier (virtual networking)  
+**Web Stack**: Apache 2.4, NGINX (reverse proxy), PHP, WordPress  
+**Database**: MariaDB  
+**Security**: UFW, Fail2ban, SSH key authentication  
+**Automation**: Bash scripting, cron  
+**Testing**: siege (load testing), tcpdump (packet analysis), ping, curl, iptables
+
+## Project Methodology
+
+**Agile approach** with daily planning and coordination:
+- Task distribution by component (VPN, firewall, web server, backup)
+- Collaborative troubleshooting and verification
+- Iterative testing and refinement
+- Continuous integration of components
+
+## Improvement Areas Identified
+
+- **Cloud integration**: Hybrid cloud connectivity for redundancy
+- **Load balancing**: Additional WordPress/database servers for high availability
+- **Advanced security**: TLS/HTTPS implementation, multi-factor authentication
+- **Monitoring**: Centralized logging and alerting systems
+
+## Learning Outcomes
+
+- Planning and building VPN-based network environments
+- Configuring enterprise-grade firewall, proxy, and backup solutions
+- Importance of verification at each implementation step
+- Security and automation as foundational principles in modern IT infrastructure
+- Effective team collaboration in distributed technical projects
+
+## Files
+
+- `Group_Tech_Specs.docx` - Comprehensive technical documentation (Swedish)
+- `Group_Presentation.pdf` - Project presentation slides
+- `Individual_Submission_Patrik.pdf` - My specific contributions and technical details
+
+---
+
+*This group project was completed as part of TUC's IT-infrastruktur module, demonstrating practical competencies in network security, virtualization, and system administration required for infrastructure and security operations roles.*
+```
