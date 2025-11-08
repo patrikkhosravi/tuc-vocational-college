@@ -1,0 +1,71 @@
+# Home WiFi Network Optimization & Security Hardening
+
+**Course**: Nätverksteknik  
+**Credits**: 25 YH-credits  
+**Institution**: TUC Yrkeshögskola  
+**Completed**: September 2024  
+**Grade**: highest grade VG (Väl Godkänd)
+
+## Assignment Objective
+
+Analyze home WiFi network performance using professional radio planning tools, implement systematic optimization strategies, and measure performance improvements. Assignment required before/after documentation with quantitative metrics demonstrating optimization effectiveness across multiple test locations.
+
+## Methodology
+
+### Tools Used
+
+**Ekahau Heatmapper**: Professional-grade signal strength mapping tool providing visual dBm coverage analysis  
+**Ping Testing**: Latency and packet loss measurement (50-packet samples to Google DNS 8.8.8.8)  
+**Bredbandskollen.se**: Swedish ISP-neutral bandwidth testing service  
+**Router Configuration Interface**: Direct CLI/web access for protocol and channel management
+
+### Test Environment
+
+Three strategically selected measurement locations representing different RF propagation challenges:
+
+1. **Living room corner**: Optimal line-of-sight to router (baseline best-case)
+2. **Kitchen**: Wall obstruction between router and test point (real-world interference)
+3. **Bathroom**: Maximum distance with multiple structural obstacles (worst-case scenario)
+
+Each location tested three times at each measurement point to ensure statistical validity.
+
+## Optimization Strategy
+
+### Physical Optimization (Primary Impact Factor)
+
+**Router Repositioning**:
+- Elevated router 1 meter higher (positioned above bookshelf)
+- Improved line-of-sight propagation to all test locations
+- Reduced ground-level interference and obstruction
+
+**Antenna Reconfiguration**:
+- **Before**: 1 vertical + 2 horizontal antennas
+- **After**: 2 vertical + 1 diagonal antennas
+- **Rationale**: Improved signal polarization diversity matching typical client device antenna orientations (laptops, phones)
+
+### 5 GHz Network Configuration Optimization
+
+**Protocol Efficiency**:
+- **Before**: 802.11ac/a/n mixed mode (backward compatibility enabled)
+- **After**: 802.11ac only (single protocol)
+- **Rationale**: Eliminated mixed-mode overhead, airtime fairness delays, and protection mechanisms for legacy devices. No 802.11a/n devices present on network.
+
+**Channel Management**:
+- **Before**: Auto channel selection
+- **After**: Locked to specific channel after interference testing
+- **Channel Width**: Auto → 40 MHz (low interference environment supports wider channels for increased throughput)
+
+**Performance Impact**:
+- Negotiated link speed: 325/325 Mbps → **433/433 Mbps** (+33% improvement)
+
+### Security Hardening Measures
+
+**Attack Surface Reduction**:
+- **WPS (WiFi Protected Setup)**: Disabled to eliminate PIN brute-force vulnerability (known security weakness)
+- **SIP ALG (Application Layer Gateway)**: Disabled to prevent VoIP protocol interference
+- **IGMP Proxy**: Disabled (not required for current network topology)
+
+**Quality of Service (QoS) Configuration**:
+- Disabled NAT Boost feature to enable proper traffic prioritization
+- Configured high-priority QoS queue for gaming device (latency-sensitive traffic)
+- Static IP + MAC ad
