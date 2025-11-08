@@ -62,9 +62,10 @@ Comprehensive network technology module covering fundamental and advanced aspect
 
 ## Assignments in This Folder
 
-### [Assignments to be added as completed]
+### 1. Home WiFi Network Optimization & Security Hardening (highest grade)
+Systematic wireless network performance analysis and optimization using professional radio planning tools (Ekahau Heatmapper). Implemented physical repositioning, antenna reconfiguration, protocol optimization (802.11ac-only mode), and security hardening measures (WPS disable, DoS protection, QoS configuration). Achieved 97% download and 836% upload bandwidth improvement in most challenging test location through combined physical and configuration optimization. Demonstrates radio planning, RF propagation analysis, security hardening, and quantitative performance validation.
 
-*Individual and group assignments will be documented here as they are completed throughout the course.*
+**Skills**: Radio planning (Radioplanering), wireless protocol optimization, signal propagation analysis, security hardening, performance testing, heatmap analysis, systematic troubleshooting
 
 ## Skills Developed
 
