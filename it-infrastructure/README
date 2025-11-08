@@ -1,0 +1,91 @@
+# IT-infrastruktur (IT Infrastructure)
+
+**Course Code**: IT-infrastruktur  
+**Credits**: 25 YH-credits  
+**Institution**: TUC Yrkeshögskola  
+**Period**: September - October 2024 (Term 1)  
+**Instructor Focus**: Practical virtualization, cloud infrastructure, and security hardening
+
+## Course Overview
+
+Foundational IT infrastructure module covering virtualization technologies, server optimization, cloud infrastructure, containerization, and security practices. The course emphasizes hands-on lab work with Linux systems (Debian), hypervisors (VirtualBox, Hyper-V), and practical security implementations.
+
+## Course Topics Covered
+
+### Virtualization & Infrastructure
+- **Virtual Machine Management**: VirtualBox, Hyper-V configuration and deployment
+- **Server Architecture**: Resource allocation, system optimization, energy efficiency
+- **Cloud Infrastructure**: Private vs. public cloud, VM deployment in cloud environments
+- **Containerization**: Introduction to container technologies and orchestration
+
+### Networking & Security
+- **Network Fundamentals**: ARP protocol review, network segmentation
+- **VPN & Secure Remote Access**: PPTP, L2TP, OpenVPN comparison; jumpbox/bastion host concepts
+- **Security Hardening**: System hardening practices, side-channel attack awareness
+- **Firewall Configuration**: UFW (Linux), Windows Firewall implementation
+
+### Risk Management & Resilience
+- **Vulnerability Analysis**: Security assessment processes and methodologies
+- **Backup Strategies**: 3-2-1 backup rule, disaster recovery planning
+- **Business Continuity**: Backup and restoration procedures
+
+## Key Learning Outcomes
+
+- Deploy and manage virtual machines across multiple hypervisors
+- Configure secure network architectures with proper segmentation
+- Implement security baselines following hardening best practices
+- Design and execute backup/disaster recovery strategies
+- Conduct basic vulnerability assessments
+- Differentiate between server platforms regarding security and performance
+
+## Lab Environment
+
+**Primary Platform**: Debian 12/13 on VirtualBox  
+**Secondary Platforms**: Hyper-V, Windows Server, Ubuntu Server  
+**Network Configuration**: Internal networks, NAT, bridged adapters  
+**Security Tools**: UFW, Fail2ban, VPN services
+
+## Assignments in This Folder
+
+### 1. WordPress & MariaDB Lab
+Two-VM architecture demonstrating network segmentation, service integration, and advanced security hardening with UFW and Fail2ban. Includes comprehensive risk analysis identifying five security vulnerabilities with mitigation strategies.
+
+**Skills**: Multi-tier architecture, network segmentation, Linux system administration, database security, firewall configuration, intrusion prevention
+
+### 2. 
+
+- Group project work
+- VPN and secure network access implementation
+
+## Study Questions Addressed
+
+Throughout the course, the following strategic questions were explored:
+
+- How can servers be optimized for energy efficiency?
+- What resources can be shared between multiple applications on a server?
+- How do different server platforms differ in security and performance?
+- What does the 3-2-1 backup strategy entail?
+- How does vulnerability analysis contribute to better security?
+- Why is disaster recovery as important as backup?
+- What are the differences between PPTP, L2TP, and OpenVPN?
+- How does VPN contribute to secure remote access?
+- What is a jumpbox and when is it used?
+
+## Tools & Technologies
+
+**Virtualization**: VirtualBox, Hyper-V  
+**Operating Systems**: Debian 12/13, Ubuntu Server 24.04 LTS, Windows Server  
+**Security**: UFW, Fail2ban, VPN protocols  
+**Services**: Apache, MariaDB, WordPress, SSH  
+**Network Tools**: netplan, ping, ss, iptables
+
+## Competencies Developed
+
+- **Technical**: Virtual infrastructure deployment, Linux/Windows administration, network configuration
+- **Security**: System hardening, vulnerability assessment, access control, backup planning
+- **Strategic**: Infrastructure design decisions, risk analysis, defense-in-depth thinking
+- **Documentation**: Technical reporting, risk documentation, architectural justification
+
+---
+
+*Part of TUC Yrkeshögskola's IT-säkerhetsspecialist program (2024-2026). This course establishes foundational infrastructure competencies required for security architecture, operations, and GRC roles.*
