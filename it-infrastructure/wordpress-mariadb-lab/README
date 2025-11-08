@@ -1,0 +1,107 @@
+# WordPress & MariaDB Lab - Virtual Server Configuration
+
+**Course**: IT-infrastruktur  
+**Credits**: 25 YH-credits  
+**Institution**: TUC Yrkeshögskola  
+**Completed**: October 2024  
+**Grade**: highest grade VG (Väl Godkänd)
+
+## Assignment Objective
+
+Configure two separate virtual machines in a secure, segmented network environment: one running WordPress (web server) and another running MariaDB (database server). Demonstrate network segmentation, service integration, and implement security hardening measures beyond basic requirements.
+
+## Lab Overview
+
+This lab required setting up a realistic multi-tier web architecture using virtualization:
+
+- **Web Server (wp-web)**: Ubuntu Server 24.04 LTS running Apache, PHP, and WordPress
+- **Database Server (wp-db)**: Ubuntu Server 24.04 LTS running MariaDB
+- **Network Configuration**: Internal network (10.10.10.0/24) for server communication with NAT for internet access on web server only
+- **Security Implementation**: UFW firewall configuration, Fail2ban intrusion prevention, and network segmentation
+
+## Skills Demonstrated
+
+- **Virtual Infrastructure**: VM creation and resource allocation in VirtualBox/VMware
+- **Network Segmentation**: Internal network configuration isolating database from external access
+- **Linux System Administration**: Package management, service configuration, network setup (netplan)
+- **Security Hardening**: 
+  - UFW firewall rules following least privilege principle
+  - Fail2ban for brute-force protection
+  - Network-level access control (MariaDB bind-address configuration)
+- **Service Integration**: WordPress-to-MariaDB communication across network boundary
+- **Risk Analysis**: Identified 5 security vulnerabilities with mitigation strategies
+
+## Key Technical Implementations
+
+### Network Architecture
+- **wp-web**: 10.10.10.10/24 (dual-homed: internal network + NAT)
+- **wp-db**: 10.10.10.20/24 (internal network only)
+- Database server isolated from direct internet access
+- Web server acts as controlled gateway
+
+### Security Measures (VG Requirements)
+
+**UFW Firewall Configuration**:
+- wp-web: Allows ports 22 (SSH), 80 (HTTP), 3306 (MySQL from 10.10.10.10 only)
+- wp-db: Allows port 22 (SSH), 3306 (MySQL from 10.10.10.10 only)
+- Default deny policy on both servers
+
+**Fail2ban Implementation**:
+- Automatic IP blocking after 5 failed SSH login attempts
+- 10-minute ban duration
+- Protection against basic brute-force attacks
+
+### Risk Analysis Conducted
+
+Identified and documented five critical security risks:
+
+1. **Distributed Brute-Force Attacks**: Fail2ban limitations against botnet attacks; recommended rate limiting and MFA
+2. **Excessive Database Privileges**: GRANT ALL PRIVILEGES violates least privilege; recommended limiting to SELECT, INSERT, UPDATE, DELETE
+3. **Unencrypted Data at Rest**: Physical access risk; recommended disk-level encryption
+4. **Predictable Usernames**: "wpuser" easily guessed; recommended randomized naming
+5. **Data Loss Without Backups**: No backup strategy; recommended 3-2-1 backup rule with automated mysqldump via cron
+
+## Architectural Decision: Why Two VMs?
+
+Documented rationale for multi-tier architecture over single-VM deployment:
+- **Security**: Defense in depth - compromised web server doesn't automatically expose database
+- **Scalability**: Multiple web servers can connect to single database (horizontal scaling)
+- **Maintainability**: Independent server updates without full system downtime
+- **Backup Strategy**: Simplified database-only backups
+- **Compliance**: Mirrors real-world production environments for regulatory requirements
+
+## Tools & Technologies
+
+- **Virtualization**: VirtualBox/VMware Workstation
+- **Operating System**: Ubuntu Server 24.04 LTS
+- **Web Stack**: Apache 2.4, PHP 8.x, WordPress 6.8.3
+- **Database**: MariaDB 10.x
+- **Security**: UFW (Uncomplicated Firewall), Fail2ban
+- **Network Configuration**: Netplan (YAML-based network configuration)
+- **Package Management**: apt
+
+## Files
+
+- `Assignment_WordPress_MariaDB_Lab.pdf` - Complete lab report with screenshots demonstrating:
+  - Successful ping between VMs
+  - WordPress admin panel accessed via browser
+  - UFW firewall status on both servers
+  - Fail2ban configuration verification
+  - Risk analysis and security recommendations
+
+## Learning Outcomes
+
+This lab reinforced understanding of:
+- Network segmentation as a security control (Nätverkssegmentering)
+- Least privilege principle (Minsta behörighet) in firewall rules and database permissions
+- Defense in depth (Djupförsvar) through multi-layered security
+- Practical Linux server administration
+- Risk-based security thinking beyond checklist compliance
+
+## Reflection
+
+The risk analysis revealed important gaps between "working configuration" and "production-ready security." Particularly valuable was recognizing that technical controls like Fail2ban provide valuable delay/detection but require complementary measures (rate limiting, MFA, monitoring) for comprehensive defense. The exercise of justifying two-VM architecture reinforced how security, scalability, and operational requirements drive infrastructure design decisions.
+
+---
+
+*This lab was completed as part of TUC's IT-säkerhetsspecialist program, demonstrating foundational infrastructure and security competencies required for security operations and architecture roles.*
