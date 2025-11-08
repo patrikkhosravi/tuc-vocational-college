@@ -25,7 +25,7 @@ Each project is organized in its own subdirectory with:
 - **IT & Data Law**: Swedish and EU regulatory compliance (GDPR, NIS2 Directive)
 
 ## Projects
-*Projects will be added progressively throughout the program. Initial uploads focus on IT infrastructure and foundational security work.*
+*Projects will be added progressively throughout the program.*
 
 ## Professional Context
 This portfolio supports my career transition from strategic planning and stakeholder management into IT security, with focus on **bridge roles** combining governance expertise with technical credibility—particularly security architecture, privacy engineering, and security program management positions.
